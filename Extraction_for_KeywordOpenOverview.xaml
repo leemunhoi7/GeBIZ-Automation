@@ -1,0 +1,206 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Table_Extraction_for_Opportunities_Overview_search_by_keyword" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="941,2355" sap2010:WorkflowViewState.IdRef="Table_Extraction_for_Opportunities_Overview_search_by_keyword_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="36">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="33">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Table Extraction for keyword searched Open Overview" sap:VirtualizedContainerService.HintSize="951,2290" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+      <Variable x:TypeArguments="x:String" Name="strExtractDataTable" />
+      <Variable x:TypeArguments="x:String" Name="keyword" />
+      <Variable x:TypeArguments="s:String[]" Name="headerList" />
+      <Variable x:TypeArguments="s:String[]" Name="rowList" />
+      <Variable x:TypeArguments="x:Int32" Name="x" />
+      <Variable x:TypeArguments="x:Boolean" Name="closed_exist" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Firefox: GeBIZ | Opportunities" sap:VirtualizedContainerService.HintSize="909,2198" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="875,1942" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:UiElementExists DisplayName="Element Exists 'DIV'" Exists="[closed_exist]" sap:VirtualizedContainerService.HintSize="833,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ab4537a8-d753-46cf-b2f2-9a4958d18817" InformativeScreenshot="d21eedcaa10f9cd59b42b2bddadc32b2" Selector="&lt;webctrl isleaf='1' parentid='contentForm:j_idt1893' tag='DIV' /&gt;" TimeoutMS="1000">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+            <If Condition="[not closed_exist]" sap:VirtualizedContainerService.HintSize="833,1702" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="454,1543" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ClickType="Single" ContinueOnError="True" DisplayName="Click 'First'" sap:VirtualizedContainerService.HintSize="412,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" Timeout="5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.gebiz.gov.sg/ptn/opportunity/BOListing.xhtml" DesignTimeRectangle="462, 800, 35, 25" ElementType="Button" FriendlyName="'First'" FullSelectorArgument="&lt;webctrl id='contentForm:j_idt1913:j_idt1964_First_1' tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl id='contentForm:j_idt1913:j_idt1964_First_1' tag='INPUT' type='submit' aaname='First' check:text='First' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACcAAAAdCAYAAAApQnX+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGgSURBVFhH7ZXNSwJBGIf7i0To4M0ggvAQdOneqYsQdDQjCLNDJRHhLYoOHaQIKqldKzFIV/wiQcFLIiKp4RZoGH7ErxmbDVa8uGw6gg+8sO/MMDzzvjPsBDhmNORisRg3oaCS44GxnFbGclrRR67dQFmu4b3Bcp3QR66QgsUmwBpluU70IZeDlQgYuuMox+Y18JzA1GYCPpZ207ecrtWJRsgBI7hiaTf6yKnaKsO1LWDuLI1lh4iF+xqa5SxWdu5gJGsmnSG4MnUmpnQgAFehs5OKf5MzOsI4ydFHUsPxgQjT4QtK7RZCHj8MGwk80aV6V05135SNe8jNXlZoQvjA/q4As6eIJk0rRZxLReTp97DaarmWO1MUORnHjF2E2Z2E97XFRgk8yFGadRneiyDMdh/mbyq/VRy+XBWSlIXEuiwHgkQohFPyJjiQe4NzS8A0uXNf+EbpgcjZo7ilU6k4TDY/1tKfqPb4uwxAjrQ0n8Gi00eqRF7x+iNWk7RsFBnuPTouYincabSKPuQGz1hOK2M5rYymHC+h8CfHIxzLAT/sf8Yeg/DbcgAAAABJRU5ErkJggg==" InformativeScreenshot="29e43fa8fc8117a25303c2e4ee19c5a7.png" ScopeSelectorArgument="&lt;html app='firefox.exe' htmlwindowname='multipleWindowBlocker_WindowTab-1' title='GeBIZ | Opportunities' /&gt;" SearchSteps="FuzzySelector" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NGetText DisplayName="Get Text 'Search Terms'" sap:VirtualizedContainerService.HintSize="412,166" sap2010:WorkflowViewState.IdRef="NGetText_1" Timeout="5">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.gebiz.gov.sg/ptn/opportunity/BOListing.xhtml" DesignTimeRectangle="244, 485, 42, 15" ElementType="Text" FriendlyName="'contract'" FullSelectorArgument="&lt;webctrl aaname=' contract ' parentid='contentForm:j_idt1220' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='contentForm:j_idt1220' tag='SPAN' type='' /&gt;" InformativeScreenshot="38a267d1e5460efb56604d3cd043e1c8.png" ScopeSelectorArgument="&lt;html app='firefox.exe' htmlwindowname='multipleWindowBlocker_WindowTab-1' title='GeBIZ | Opportunities' /&gt;" SearchSteps="FuzzySelector">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="164, 485, 80, 15" ElementType="Text" FriendlyName="'Search Terms'" FullSelectorArgument="&lt;webctrl parentid='contentForm:j_idt1220' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='contentForm:j_idt1220' tag='SPAN' type='' aaname=' Search Terms: ' check:text='Search Terms:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFQAAAATCAYAAAAONioVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOkSURBVFhH7ZXfa9NQFMf93wIhtGy6UjdCaRlso+xhtkhYGe3mJiNFBkPYiA6qhSLbRCmLZZS2PuwHk6KCQikUioiTdg99KYKQh8LXc5ObmsVOlEV8ycMXknvPPefcz73n3BuDwQC+vJMP1GP5QD2WD9Rj+UA9lg/UYw2BGp9LWIkGIAoCBGkMcjyHjw7Df6MWtAjFi2hojZznKqcgsLzcSpVH2/9HcaBdFOYoweAcNvZ17GvLiK+9Qt9l7L3+EOj5W+i6Dj2nIEQgQ0rO+n97Ptr+P4oDtTe2habhMurVoSXCkNiNEAOIqkfomXNd6EsyxiQapzkpnEChaVhrzBu1gNzrTcwGRMhbTRrvoa4lELbtxzI4/MbjygrSs1Z1XPLjVktDhGwiWssx7vQrIhBVcdRj45bvUFbHixTLX0HJ4GOZLai8GqXwCg6ONTNPQZAQThQsBr0jqNNjw33fmnmMBu15d16EOPEAb5x5mbJ8D0u+tRPj5S5j8ekZLkywfRSTFOj2KirtDtrHWdqQiGSxb60pasifNNBpv4QSpLULL6xbbQKlwNIEZpQMHla76BeT5F/EVDpPt2sf2k4VXfsghXEkH9GNy6cQphzEdI0n6dIIoJbf21ittCmPY2TJn5gsUh7ct0iQ5TvIZJ5RC3PF215AkO2ZV+aj5DjNBXH/dIBPxEMQbmKtSvt+pyNfZjH7qK3JCMWf/FJR5ZSVl+NRMnBx9hSLskSO6OTmd/FlUENaZAlclrkho4nni9PDG2rKLl3e8+b3esOAtTS7AeyW2PGY+AZDG3hv/jexJTv8uDUCqOXXkQOTud72nUV9GNMVzyhBYfZ2L+Z5p8r0ppyqmGB7l8KIq3v4cHFF1ZhiflMo07cDqK3vOFsPkeMYdj5xoEoJhsvOOsEglIMLmuOJuoCyxGx7doJXAh0CdP+7dCVQt1+mUb7cY2WkrgDK/r9/fYc9dcYCO66OKHNbzO8loGWshONY1vapHPNIT1GSwXs4MnjJizGsV6i0Ow2c5Auodm2gIWQO27wVOBIdAbS7O+8oeSohNUcJXh+o3Upi6xU0Oh00TvIoUIu5LtButWC1s04bhxl2wRiwPy75j9ievoWAWd7UcyYT0Oq8XM1HadIxtwSdgA567BBYe6Cx2U3sZSO/BTowPqO0Ev3pJ7r9s6ddA6j9KE2ajwr1z8AklnQPgD6/O2xnzGei0KRK/ItHyZc38oF6LB+ox/KBeiwfqKca4AeUMof8L4OeZgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                    <uix:NGetText.Text>
+                      <OutArgument x:TypeArguments="x:String">[keyword]</OutArgument>
+                    </uix:NGetText.Text>
+                  </uix:NGetText>
+                  <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='New column 0'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='New column 1'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column2' Name='New column 2'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column3' Name='New column 3'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column4' Name='New column 4'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataNextLink' /&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='text'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column1' attr='text'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='3' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column2' attr='text'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column3' attr='text'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='4' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column4' attr='text'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="412,166" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="Rows" MaximumResults="0">
+                    <uix:NExtractData.NextLink>
+                      <uix:TargetAnchorable BrowserURL="https://www.gebiz.gov.sg/ptn/opportunity/BOListing.xhtml" DesignTimeRectangle="777, 820, 35, 25" ElementType="Button" FriendlyName="'Next'" FullSelectorArgument="&lt;webctrl id='contentForm:j_idt1832:j_idt1883_Next_2' tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl id='contentForm:j_idt1832:j_idt1883_Next_2' tag='INPUT' type='submit' aaname='Next' check:text='Next' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACcAAAAdCAYAAAApQnX+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHcSURBVFhH7ZTNSwJBGMb7ixahQ+DRm8cOXaObB6GLEIiUl/QgRXSxg9BNKISg9rKLFaYhURsWedgIJE3JjCiLTPvgaXZ2152MQtekFfaBF+Z95+s3zzAzAgtrOOAkSbJM6PoCZwXZcGZlw5mVDWdW3cOV83D7RUxs17WCokt4/QK8R1ras0rwz+/Af6KlHeoRTgAXlLD9rtX6hvt9fo9wSYwFBYyLunsdi7dqiK7sYpTUHHMZhOQG8H4FH5nj2qjRIUUxAy6QRfxRnctp4ebvaD+rHuFSiIgSAdTdY+Ga2FpNwrFwhlzrDbnNPTi0cRSItmsIhQ3QP3YuhcVyHbFlUXOPXbyI6YAAz8GHkhiHKZE2dS8JX4IcjLqmDhkAHPCaP4YzeIitBrM47TeuSQ99Y+oeyV2JKl7VEtEA4ADVPTef/wb300Yyn6Jwznh50HC6e+SBtBdXN5rMNGn/FykOK9fKn8AV2EfsVqsPCk53z7g69UFwkRzS9x94ebpGdO0cMumhroVPkSNzokuse2XMKC95vYKbxhutsOoDjrh3QZxgT858JdzsLqb4CqoPBXiYr6SeyZKvxHBPFtPq1xMr4FkttdU93D/IhjMrG86shhPOKqGrDWdFWRgO+ASqL7H0H+7zwwAAAABJRU5ErkJggg==" ScopeSelectorArgument="&lt;html app='firefox.exe' htmlwindowname='multipleWindowBlocker_WindowTab-1' title='GeBIZ | Opportunities' /&gt;" SearchSteps="FuzzySelector, Image" />
+                    </uix:NExtractData.NextLink>
+                    <uix:NExtractData.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="159, 474, 936, 2941" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;form&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' parentid='contentForm:j_idt1832' tag='DIV' /&gt;" InformativeScreenshot="da92eb941b207fa98042cd064052f88e.png" ScopeSelectorArgument="&lt;html app='firefox.exe' htmlwindowname='multipleWindowBlocker_WindowTab-1' title='GeBIZ | Opportunities' /&gt;" SearchSteps="Selector" />
+                    </uix:NExtractData.Target>
+                  </uix:NExtractData>
+                  <ui:OutputDataTable DataTable="[ExtractDataTable]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="412,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[strExtractDataTable]" />
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="412,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[strExtractDataTable]" />
+                  <ui:WriteRange AddHeaders="False" DataTable="[ExtractDataTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="412,115" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[keyword]" StartingCell="A2" WorkbookPath="ProjectOverview_KeywordOpen.xlsx" />
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="412,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="s:String[]">[headerList]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="s:String[]" xml:space="preserve">[{"SN-Project","Tender-Quotation","	Agency	","ProcurementCategory","Closing On"}]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="s:String[]">[rowList]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="s:String[]">[{"A","B","C","D","E"}]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                  </ui:MultipleAssign>
+                  <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[x]" DisplayName="For Each - upload ItemToRespond headers" sap:VirtualizedContainerService.HintSize="412,344" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[headerList]">
+                    <ui:ForEach.Body>
+                      <ActivityAction x:TypeArguments="x:String">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,209" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:WriteCell Cell="[rowList(x)+&quot;1&quot;]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="[keyword]" Text="[item]" WorkbookPath="ProjectOverview_KeywordOpen.xlsx" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEach.Body>
+                  </ui:ForEach>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Please check if you have clicked on the Open Tap and searched with a keyword&quot;]" />
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 1270, 1047" BrowserType="Firefox" IconBase64="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" InformativeScreenshot="adfaa96f27a195991f27e1f22c64fe0a.png" Selector="&lt;html app='firefox.exe' htmlwindowname='multipleWindowBlocker_WindowTab-1' title='GeBIZ | Opportunities'/&gt;" Url="https://www.gebiz.gov.sg/ptn/opportunity/BOListing.xhtml" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

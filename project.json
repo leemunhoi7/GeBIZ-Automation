@@ -1,0 +1,86 @@
+{
+  "name": "GeBIZ automation",
+  "description": "Program history:
+----------------
+Main.xaml -  19Jun2021:Initial Release by Lee Mun Hoi - (auto data scraping is limited to opportunities that are still opened only)
+Main.xamlV1- 23Jun2021:Add data scraping for ItemToRespond, Corrigendum/documment download via dynamic selector looping.
+Main.xamlV2- 26Jun2021:- Change to use Table Scraping for unlimited ItemToRespond and DELIVERY INFORMATION Tables.
+                       - Limit Corrigendum scraping and its doc downlooping up to 10 VERSIONs.
+                       - Merge user keywords input and data header template to setup.xlsx.
+                       - Output scraped data to GeBIZoutput.xlsx and ItemsToRespond.xlsx (latter is for ItemToRespond/Tables)
+                       - Need to install ScrollActivity dependency package for auto up/down scrolling of window.
+Main.xamlV3- 29Jun2021 - Fixed multiple download pages for both tender and corrigendum Documents.
+                       - Fixed auto header generation issue on ItemToRespond.xlsx.
+Main.xamlV4- 03Jul2021 - Add new varible (DownLoadFolder) for user to update their PC's default downloading path under the Varible Scope.
+                       - Fixed bugs on ItemToRespond auto header generation.
+                       - Fixed bugs on Corrigendum document download retry iteration.
+                       - Add option (printOneVersionOnly) to download only the latest version(default=true) or all versions(limit to 10) of corrigendum documents.
+                       - Add option (skipMessagebox) to skip(default=false) messagebox promptings for the status of each seached project.
+                       - Change file name from GeBIZoutput.xlsx to ProjectDetail.xlsx and update setup.xlsx with additional and revised headers.
+                       - Uploading of data to ProjectDetail.xlsx will be done at end of each project instead of doing at the end of program.
+                       - Include data scraping of (ITEMS) and (MANUAL COLLECTION INFORMATION) for some rare projects.
+                       - Include table extraction for (PART NO.INFORMATION) from ItemToRespond.
+                       - Created standalone Credential_Login.xaml for auto login with Singpass credential.
+                       - Created standalone Extraction_for_TodayOpenOverview.xaml(all the today's opened project previews will be scraped-limit to 100)
+                       - Created standalone Extraction_for_KeywordOpenOverview.xaml(all searched opened project previews per keyword will be scraped - limit to 100)
+                       - Created standalone Extraction_for_KeywordCloseOverview.xaml(all searched closed project info per keyword will be scraped - limit to 100)",
+  "main": "MainV4.xaml",
+  "dependencies": {
+    "ScrollActivity": "[1.0.2]",
+    "UiPath.Credentials.Activities": "[1.1.6479.13204]",
+    "UiPath.Excel.Activities": "[2.10.4]",
+    "UiPath.Mail.Activities": "[1.10.5]",
+    "UiPath.System.Activities": "[21.4.1]",
+    "UiPath.UIAutomation.Activities": "[21.4.4]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "21.4.4.0",
+  "projectVersion": "1.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "isPausable": true,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": true
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "MainV4.xaml",
+      "uniqueId": "d2b5740f-1af5-496b-8d2d-2d4b7384621a",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "MainV4.xaml",
+      "uniqueId": "4c6edf93-07a2-4747-891c-9dd72bd48457",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Legacy"
+}
